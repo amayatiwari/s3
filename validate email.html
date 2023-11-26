@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+
+<body>
+
+<h2>Login</h2>
+
+<form id="loginForm" onsubmit="return validateForm()">
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required>
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required>
+
+    <button type="submit">Login</button>
+</form>
+
+<div id="error-message"></div>
+
+<script>
+    function validateForm() {
+        var email = document.getElementById("email").value;
+        var password = document.getElementById("password").value;
+
+        // Regular expression for a valid email address
+        var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        // Validate email using the regular expression
+        if (!emailRegex.test(email)) {
+            displayError("Please enter a valid email address");
+            return false;
+        }
+
+        // Other login validations can be added here
+
+        // Display success message using a pop-up
+        alert("Login successful!");
+
+        // Clear the form data after a short delay (1 second in this example)
+        setTimeout(function () {
+            document.getElementById("loginForm").reset();
+        }, 1000);
+
+        // Prevent form submission for this example
+        return false;
+    }
+
+    function displayError(message) {
+        var errorMessageElement = document.getElementById("error-message");
+        errorMessageElement.innerHTML = message;
+    }
+</script>
+
+</body>
+</html>
