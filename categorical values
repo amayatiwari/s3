@@ -1,0 +1,5 @@
+#p3.Write a python program the categorical values in numeric format for a given dataset
+import numpy as np
+from sklearn.preprocessing import LabelEncoder
+df=pd.read_csv('categorical_data.csv')
+print(df)
